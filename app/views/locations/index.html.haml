@@ -1,4 +1,14 @@
-%h1.title All Locations of Interest
+%h1.title Mapa
+.map
+  %div#map
+
+%input#locations{:type => "hidden", :value => @locations_json}
+
+%h1.title Lugares de interes
+%p= link_to 'Usuarios', users_path
+%p=link_to "Crear lugar nuevo", new_location_path
+%p=link_to "Buscar", locations_buscar_path
+%p=link_to "Convexo", locations_convexo_path
 
 %table#table
   %thead
@@ -16,11 +26,15 @@
         %td= location.latitude
         %td= location.longitude
         %td= location.description
-        %td= link_to "Edit", edit_location_path(location)
-        %td= link_to "Delete", location_path(location), :method => :delete, :confirm => 'Are you sure?'
-
+        %td= link_to "Editar", edit_location_path(location)
+        %td= link_to "Borrar", location_path(location), :method => :delete, :confirm => 'estas seguro?'
+%p=link_to "Borrar todo", destroy_all_locations_path, :method => :get, :confirm => 'estas seguro?'
 %p= show_flash
 
-%p=link_to "Create new location", new_location_path
 
-%p=link_to "Delete all", destroy_all_locations_path, :method => :get, :confirm => 'Are you sure?'
+
+= javascript_include_tag '/assets/maps/OpenLayers'
+= javascript_include_tag '/assets/maps/locations'
+
+:javascript
+  initMap($("#locations").val());

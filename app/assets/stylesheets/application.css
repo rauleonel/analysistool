@@ -29,9 +29,10 @@ div#main {
 
 a {
     background: transparent;
-    color: black;
+    color: #3366FF;
     text-decoration: underline;
     font-weight: bold;
+    font-size: 14px;
 }
 
 h1 {
@@ -46,9 +47,9 @@ h1 {
 h1.title {
     margin: 0 0 8px;
     padding: 10px;
-    background-color: #3c80ff;
+    background-color: #009900;
     color: white;
-    border-bottom: 4px solid #0012e1;
+    border-bottom: 4px solid #66CC66;
     font-size: 2em;
     font-style: normal;
 }
@@ -112,4 +113,10 @@ form textarea {
 
 label#position {
     font-size: 10px;
+}
+
+.map {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 500px;
 }

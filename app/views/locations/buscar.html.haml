@@ -1,0 +1,15 @@
+%h1.title Buscar
+
+= form_tag locations_coincide_path, :method => :get do
+
+  = label :loc, :latitude, 'Latitude'
+  = text_field :loc, :latitude
+
+  = label :loc, :longitude, 'Longitude'
+  = text_field :loc, :longitude
+
+  %p
+  = submit_tag 'Buscar'
+
+%p
+= link_to 'Regresar a lugares', locations_path

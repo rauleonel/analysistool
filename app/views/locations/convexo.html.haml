@@ -1,0 +1,7 @@
+%h1 Convex Hall
+-@res.each do |loc|
+	%h2=loc.name
+%h1 Perimetro
+%h2= @perimetro.to_s + " m"
+%h1 Distancia mas larga desde Casa
+%h2= @location[@max].name

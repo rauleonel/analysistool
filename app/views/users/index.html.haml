@@ -1,0 +1,29 @@
+%h1.title Mapa de usuarios
+
+.map
+  %div#map
+
+%input#gps{:type => "hidden", :value => @Json}
+= javascript_include_tag '/assets/maps/OpenLayers'
+= javascript_include_tag '/assets/maps/locations'
+
+:javascript
+  initMap($("#gps").val());
+%h1.title Usuarios
+%table#table
+  %thead
+    %tr
+      %th Name
+      %th
+      %th
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.name, user_path(user)
+        %td= link_to "Subir JSON", user_path(user)
+        %td= link_to "Borrar", user_path(user), :method => :delete, :confirm => 'estas seguro?'
+
+%p= show_flash
+
+%p=link_to "Crear nuevo usuario", new_user_path
+
