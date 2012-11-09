@@ -25,6 +25,7 @@ Analysistool::Application.routes.draw do
 
   resources :users do
     resources :gps_samples
+    resources :activity_counts
   end
 
   #resources :users do

@@ -11,7 +11,14 @@
 
 = form_tag user_gps_samples_path(params[:id]), :method => :post, :multipart=>true do
 
-  = label :user, :name, 'Subir json'
+  = label :user, :name, 'Subir json gps'
+  = file_field_tag :file
+  %input{:type => "hidden", :value=> @user.id, :name=>"id"}
+  = submit_tag 'Upload'
+
+= form_tag user_activity_counts_path(params[:id]), :method => :post, :multipart=>true do
+
+  = label :user, :name, 'Subir json activities'
   = file_field_tag :file
   %input{:type => "hidden", :value=> @user.id, :name=>"id"}
   = submit_tag 'Upload'
